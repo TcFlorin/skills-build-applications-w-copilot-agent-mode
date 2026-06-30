@@ -1,14 +1,16 @@
 import { Router, Request, Response } from 'express';
+import Team from '../models/team';
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-  res.json({ teams: [], message: 'List teams endpoint' });
+router.get('/', async (_req: Request, res: Response) => {
+  const teams = await Team.find().populate('members').lean();
+  res.json({ teams });
 });
 
-router.post('/', (req: Request, res: Response) => {
-  const team = req.body;
-  res.status(201).json({ team, message: 'Create team endpoint' });
+router.post('/', async (req: Request, res: Response) => {
+  const team = await Team.create(req.body);
+  res.status(201).json({ team });
 });
 
 export default router;
