@@ -23,7 +23,7 @@ function Workouts({ apiBase }: WorkoutsProps) {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`${apiBase}/workouts`)
+        const res = await fetch(`${apiBase}/workouts/`)
         const data = await res.json()
         setWorkouts(Array.isArray(data.workouts) ? data.workouts : data.workouts?.data ?? [])
       } catch (err) {

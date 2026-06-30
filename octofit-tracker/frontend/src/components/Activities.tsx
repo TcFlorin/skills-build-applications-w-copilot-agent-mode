@@ -23,7 +23,7 @@ function Activities({ apiBase }: ActivitiesProps) {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`${apiBase}/activities`)
+        const res = await fetch(`${apiBase}/activities/`)
         const data = await res.json()
         setActivities(Array.isArray(data.activities) ? data.activities : data.activities?.data ?? [])
       } catch (err) {

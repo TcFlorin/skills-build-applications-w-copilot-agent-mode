@@ -22,7 +22,7 @@ function Teams({ apiBase }: TeamsProps) {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`${apiBase}/teams`)
+        const res = await fetch(`${apiBase}/teams/`)
         const data = await res.json()
         setTeams(Array.isArray(data.teams) ? data.teams : data.teams?.data ?? [])
       } catch (err) {

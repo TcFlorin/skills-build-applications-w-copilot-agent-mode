@@ -21,7 +21,7 @@ function Users({ apiBase }: UsersProps) {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`${apiBase}/users`)
+        const res = await fetch(`${apiBase}/users/`)
         const data = await res.json()
         setUsers(Array.isArray(data.users) ? data.users : data.users?.data ?? [])
       } catch (err) {

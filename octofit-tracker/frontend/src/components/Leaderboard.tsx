@@ -22,7 +22,7 @@ function Leaderboard({ apiBase }: LeaderboardProps) {
       setLoading(true)
       setError(null)
       try {
-        const res = await fetch(`${apiBase}/leaderboard`)
+        const res = await fetch(`${apiBase}/leaderboard/`)
         const data = await res.json()
         setRows(Array.isArray(data.leaderboard) ? data.leaderboard : data.leaderboard?.data ?? [])
       } catch (err) {
